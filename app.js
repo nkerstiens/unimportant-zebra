@@ -6,7 +6,7 @@ const { MongoClient, ServerApiVersion, ListIndexesCursor } = require('mongodb');
 const { resourceLimits } = require('node:worker_threads');
 const uri = "mongodb+srv://dev-papa:yes123@dev-lab-papa.6opbmby.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
@@ -219,9 +219,8 @@ app.post('/deleteRenters/:name', async (req, res) =>
 
     
 
-// app.listen(PORT, console.log(`server is running on port: ${PORT}` ));
-app.listen(process.env.PORT || 3000,
-      () => console.log(`server is running on port: ${process.env.PORT}` ));
+app.listen(PORT, console.log(`server is running on port: ${PORT}` ));
+
 
 // login:
 // admin creds == yes
